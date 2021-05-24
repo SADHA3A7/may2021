@@ -1,0 +1,157 @@
+S3 : Simple Storage Service : 
+
+Object Based Storage :  Designed to store flat files. (pdf/docx, .exe, .msi) : GDrive : S3 
+Block Based Storage : Designed to run OS/ applications.. : EBS, Instance Store
+Storage over the network : (SAN/NAS) : Storage device available over the network, network resources can connect it and access the data..  EFS, FSx
+
+--> S3 is Object Based Storage. We cannot install any OS or we cannot run any application in this s3 platform.
+--> We are going to store all data in S3 "BUCKETS".
+--> Bucket name should be unique.
+--> We have unlimited data in s3 platform.
+--> Defaultly we can create 100 buckets in AWS account. (Soft limit : We can raise ticket to increse this count).
+--> Bucket Naming Limitations : 
+	--> Bucket name should contains only lowercase letter. No uppercase.
+	--> SHould not start . / Endwith . / Adjesent ..
+	--> SHould not resemble IP address format.
+
+--> We can upload/download/share the bucket data.
+--> Object : Data uploading to s3 bucket.
+--> Maximum Object size S3 supports : 5 TiB, Min Obj Size : 0/1 Byte
+--> S3 is a global service. Does not required any region selection.
+
+Object url : https://s3.regioncode.amazonaws.com/bucketname/objectname
+
+Virtual Path : It won't work when we have . in the bucket names..
+https://bucketname.s3.regioncode.amazonaws.com/objectname
+https://bucketname.s3.amazonaws.com/objectname
+
+https://1avinash.s3.ap-south-1.amazonaws.com/s3.txt
+
+--> If we want to make any data publicly accesable, We need to edit Bucket level "public Access settings". (Block all public access : On)
+
+--> Make object public, then we can access the file.
+
+________________________________________________________________________________________
+
+D: 22/05/2021
+
+Block Public Access settings for this account : Use Amazon S3 Block public access settings to control the settings that allow public access to your data.
+
+
+S3 Standard : Default storage class for our data. Data will be available immediately. Designed to store Frequently accessed data.
+Data replicates across >= 3 AZs
+Availability : 99.99%
+Durability : 99.999999999% (11 9's)
+
+Standard-IA (Infrequently Accessed) : We can store infreq accessed data. Data will be available immediately.
+Data replicates across >= 3 AZs
+Availability : 99.9%
+Durability : 99.999999999% (11 9's)
+
+Onezone-IA : We can store infreq accessed data. Data will be available immediately.
+Data stores only in 1 AZ only
+Availability : 99.5%
+Durability : 99.999999999% (11 9's)
+
+S3 Glcier : We can archieve data for longer durations. We cannot access the data immedeatly. When we required, we need to initialise the data restoration.  Data restoration takes Min-Hrs.
+Data replicates across >= 3 AZs
+Availability : 99.99%
+Durability : 99.999999999% (11 9's)
+
+S3 Glacier Deep Archieve : We can archieve data for longer durations. We cannot access the data immedeatly. When we required, we need to initialise the data restoration.  Data restoration takes Hours.
+Data replicates across >= 3 AZs
+Availability : 99.99%
+Durability : 99.999999999% (11 9's)
+
+S3 Intelligent Tiering : When we have unknown access patterns. 
+Data replicates across >= 3 AZs
+Availability : 99.9%
+Durability : 99.999999999% (11 9's)
+
+RRS (Redused Redundancy Storage) : Not recommanded.. Less durability. Chances to loss the data is more compare to another storage classes. TO store easily repodusable data, Non Mission critical data.. 
+Data replicates across >= 3 AZs
+Availability : 99.9%
+Durability : 99.99%
+
+GLacier Retrivals : 
+Bulk retrieval : Typically within 5-12 hours.
+Standard retrieval : Typically within 3-5 hours.
+Expedited retrieval : Typically within 1-5 minutes when retrieving less than 250 MB. 
+
+Free Tier : 5 gb s3 standard storage.
+2000 PUT (upload) Operations and 20,000 GET (open/download) operations. Value reset everymonth 1st. 
+
+Data retrival cost involved for : standard-IA, onezone-IA, Glacier, G Deep archieve..
+
+__
+Versioning : 
+--> We can track all changes happening on this file.
+--> If we accidentally deleted the object, we can get it back if versioning is enabled.
+
+Most recent uploaded object called as "Current Object / Latest object"
+
+(version: hide)
+When versioning is enabled, If we delete the object, we will get the "Delete Marker", Delete the Delete marker to get this object back to s3 bucket.
+
+(version: show)
+Whatever we deletes, we won;t get any delate marker. Object deletes permanently.
+
+
+delete : Create a Delete Marker.
+permanently delete : THis object deletes permanently, without delete marker.
+
+________________________________________________________________________________________
+
+D: 24/05/2021
+
+LCR : LifeCycle Management Rule : 
+
+expire : We will get a Delete marker.
+
+CRR/SRR : 
+--> Source bucket and Destination bucket should enabled with Versioning.
+--> If source bucket and destination bucket is in same region : SRR (Same region replicaiton)
+--> If source and destination buckets are in diff region : CRR (Cross region replication).
+
+RTC : Replication Time Control : Boost up the replication process. Max of data replicates within 15 min. 
+
+--> Existing objects won't replicate to destination bucket. ALl future/subsequent uploads will replicate to destination bucket.
+
+______
+Enable Billing information access to IAM User/role : Login as root user --> Myaccount --> ENable.
+Enable FREE TIER Limit Alerts : 
+My Account --> Billing preferences --> Receive Free Tier Usage Alerts (Enable) and Provide email. 
+
+Create a Billing Alarm to get notification when any of the aws resource start costing us.
+Billing preference --> Receive Billing Alerts -->  Manage Billing Alerts  --> create a billing alarm.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
