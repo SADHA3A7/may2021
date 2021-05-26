@@ -125,6 +125,115 @@ My Account --> Billing preferences --> Receive Free Tier Usage Alerts (Enable) a
 Create a Billing Alarm to get notification when any of the aws resource start costing us.
 Billing preference --> Receive Billing Alerts -->  Manage Billing Alerts  --> create a billing alarm.
 
+________________________________________________________________________________________
+
+D: 25/05/2021
+
+Encryption : 
+
+--> In-Transit Encryption
+	--> S3 Uses SSL / TLS Certificates. THis enabled by defaultly.
+
+--> Server Side Encryption (SSE) / At-Rest 
+	--> SSE - S3 : Key material generated and managed by S3 platform. Whoever have valid access on s3 platform they can decrypt the data.
+
+    --> SSE - KMS (Key Management Service): 
+	--> aws/s3 : (Default Master Key / DMK) : Key material generated and managed by KMS Service. Whoever have valid access on s3 platform they can decrypt the data.
+	--> Customer managed keys (CMK) : Key material generated and managed by KMS Service. We need to provide required permissions on Encryption key to IAM users/Roles, then only they can decrypt the data. (NO FREE TIER ELIGIBILITY : 1$/Month)
+
+	--> SSE - C (Customer Provided) : We/customer need to generate the key material and need to upload the key material to KMS service, then we can use as regular kms key. We need to provide required permissions on Encryption key to IAM users/Roles, then only they can decrypt the data. (NO FREE TIER ELIGIBILITY : 1$/Month)
+
+
+Client SIde Encryption : When client don;t want to send any unencrypted data to any of the outside env, We can use this CSE. AWS is not responsible for this CSE. (truecrypt, securedata)
+
+_____
+KMS Defaultly generates the Key for the services we are using (Ex: aws/s3, aws/ebs, aws/efs). These keys we cannot delete, It is managed by AWS KMS service.
+
+Step 1 : Symmetric 
+Symmetric : A single encryption key that is used for both encrypt and decrypt operations
+Asymmetric : A public and private key pair that can be used for encrypt/decrypt or sign/verify operat.
+
+Step 2: provid name and descryption.
+
+Step 3: Define key administrative permissions. 
+	--> Who can administrate this encryption key. (Delete, Provide permission to users, key disable/enable).
+
+Step 4 : Define key usage permissions
+	--> Who can use this key. Who can decrypt the data. 
+
+Step 5 : Review and create.
+
+___________
+
+
+Intelligent-Tiering Archive configurations : This feature is similar to Glcier and Glacier Deep archieve, but intelligence added here. THis applicable to Intelligent tier storage class data only. 
+
+Archive Access tier : When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 90 days to the Archive Access tier. Restore takes 3-5 Hrs.
+
+Deep Archive Access tier : When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 180 days to the Deep Archive Access tier. Restore takes min of 12 Hrs.
+
+____________
+
+Server access logging : We can enable logging for this individual s3 bucket. 
+
+In CLoudtrail: We have DATA Events, This feature can log all the information about the s3 bucket. (all current s3 buckets and future s3 buckets also).
+
+_________________________________________________________________________________________
+
+D: 26/05/2021
+
+Bucket policy : 
+
+1avinash bucket
+
+IAMuser1 : S3FullAccess : Okay to have full acces son all resources 
+IAMuser2 : S3FullAccess : I don't want to allow this user to Delete "1avinash", Deny PUT operations on this bucket.
+
+Policy Generator URL : https://awspolicygen.s3.amazonaws.com/policygen.html
+
+Policy type : S3 bucket
+
+effect : ALLOW / DENY	: Deny
+Principal : For what IAM user/group you want to allow/deny : arn:aws:iam::518084852393:user/user2
+
+Actions : DeleteBucket
+
+Resources arn : on what bucket you want to apply : arn:aws:s3:::1avinash
+
+Bucket level : arn:aws:s3:::1avinash
+Object level : arn:aws:s3:::1avinash/*
+
+_____________
+
+Event notifications: 
+
+--> SNS : Simple notification Service
+--> SQS : Simeple queue service
+--> Lambda
+
+Navigate to SNS, Create a SNS topic, Add subscribers. (Modify accesspolicy : everyone)
+(1000 emails)
+
+___
+
+Transfer acceleration : Boost up the data transfer. It uses neasrby edge locations to perform data transfer. No guarantee to get positive results with this feature, We can run speed comparison tool to te the result. 
+--> If we have . in bucket name, we cannot use this feature.
+
+https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=ap-south-1&origBucketName=1avinash
+
+___
+
+Requester pays : Instead of bucket owner, data requester will get charged for the req & data transfer. 
+
+
+
+
+
+
+
+
+
+
 
 
 
