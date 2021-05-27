@@ -225,6 +225,100 @@ ___
 
 Requester pays : Instead of bucket owner, data requester will get charged for the req & data transfer. 
 
+_______________________________________________________________________________________
+
+D: 27/05/2021
+
+Object Lock : Protect our data. WHiloe creating bucket we need to enable this feature.
+--> Versioning must be enabled to use object lock.
+
+Data retention period : 2 days.. 
+
+
+Governance : Users with specific IAM permissions can overwrite or delete protected object versions during the retention period.
+
+Compliance : No users can overwrite or delete protected object versions during the retention period.
+
+__________
+
+Static Website hosting : 
+--> Bucket name should be same as Domain name (In future if you have idea to map domain name)
+--> All data must have public read access. 
+--> Supports 3500 Req/Sec
+--> Index.html , error.html
+
+Http status codes : 
+2XX : OK/Success
+3XX : Redirection
+4XX : Client Side errors
+5XX : Server Side errors
+
+_________
+
+Cloudwatch : Monitoring service in our AWS environment. It generates graphs on our resources.
+
+Storage Class Analysis : Based on our access patterns, Atorage class analysis report suggest us to choose the appropriate stirage class for the data.
+--> CSV
+
+Inventory configurations : This report provide all objects and metadata information. We can generate Weekly / Daily inventory reports.
+
+Cross-origin resource sharing (CORS) : 
+
+Access control list (ACL) : 
+TO share s3 data, we need to have receivers cananical id.
+
+______________
+
+Performance : 
+
+--> Increase the randomness in the object names.
+--> Use the prefixes (folders) to manage the data.
+
+--> 3500 PUT/Sec, 5500 GET/Sec we will get if we are directly storing all the data in s3 bucket.
+
+--> 3500 PUT/Sec, 5500 GET/Sec we will get Per Prefix.
+
+If you required 35000 PUT/Sec, Create 10 Prefixes and upload the data to the prefixes.
+
+_____________
+
+Consistency Mechanism : 
+
+Read after write consistency for PUT of new objects.
+Eventual consistency for Overwride of PUT object and Delete object. (it might take some seconds to delete/update the existing backend copies).
+
+_____________
+
+
+https://www.udemy.com/course/linuxwithavinash/?couponCode=MAY1AVINASH
+
+https://www.udemy.com/course/jenkinswithavinash/?couponCode=MAY1AVINASH
+
+https://www.udemy.com/course/gitbyavinash/?referralCode=F7D62CDB4D61EADE1CC7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
