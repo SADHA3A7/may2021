@@ -296,6 +296,27 @@ https://www.udemy.com/course/jenkinswithavinash/?couponCode=MAY1AVINASH
 
 https://www.udemy.com/course/gitbyavinash/?referralCode=F7D62CDB4D61EADE1CC7
 
+________________________________________________________________________________________
+
+D: 28/05/2021
+
+AWS SnowFamily : Create a Job to get the device.
+
+AWS Snowcone : 8 TB
+AWS Snowball : 80-100 TB 
+AWS SNowball Edge : 40 - 100 TB
+AWS Snowmobile : PB Scale container
+
+_____________________________________________________________________________________
+
+
+
+
+
+
+
+
+
 
 
 
