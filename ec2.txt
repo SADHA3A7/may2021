@@ -223,21 +223,31 @@ Make Same volume available to "1b instance"..!!
 
 _______________________________________________________________________________________
 
+D: 02/06/2021
+
+DLM : Data lifecycle manager. 
+
+Snapshots are point-in-time copies.
+AWS uses s3 platform to store the snapshots (not your s3).
+
+--> VOlume 
+--> Instance
+
+--> We need to have valid tags for the resources (volume/instance).
+
+
+GoldenAMI / GOlden Image:  
+
+Req: Create 10 ec2 instance, Custom WP, IIS, Custom user, custom password for administrator.. ms office, av, internal applications.. Comply with CIS..
+
+ec2 instance --> Perform all customizations --> Create an Image.
+
+IIS -> place your webpages :  C:\inetpub\wwwroot
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+Task : Create GoldenAMI with  Custom WP, IIS, Custom user, custom password for administrator..  
+--> Launch an instance from GAMI, we should get all custom settings.
 
 
 
