@@ -249,6 +249,102 @@ IIS -> place your webpages :  C:\inetpub\wwwroot
 Task : Create GoldenAMI with  Custom WP, IIS, Custom user, custom password for administrator..  
 --> Launch an instance from GAMI, we should get all custom settings.
 
+________________________________________________________________________________________
+
+D: 03/06/2021
+
+How to launch and Connect to Linux ec2 instance.
+
+Opensource : We can see how prog working, Modify the prog working structure, We can share it, We can use for any purpose. --> Amazon Linux 2  (Cent OS / Redhat)
+
+Step1 : Choose AMI : Amazon Linux 2 AMI
+Step2 : CHoose t2.micro
+Step 3 : Additional Configurations 
+Step 4 : Choose volume (8 gb volume)
+Step 5 : Add Tags
+Step 6 : Configure the Security Groups
+
+	Linux : SSH (Secure Shell) : Port 22 : (Anywhere/custom/myip)
+
+Step 7 : create a newkeypair and launch instance. (.pem)
+
+How to connect to Linux Instance.
+
+Windows OS Users : 
+Option 1 : Install "Openssh" in windows laptop, use "Command Prompt". (.pem)
+Option 2 : DOwnload and run "Putty" application. Putty Won't support .pem format file, So 	convert the .pem to .ppk ("PuttyGen")
+--> Provide the Publlic ip, COnnection, Expand "ssh", Select "auth", Browse the ppk file.
+
+Mac / Linux OS : We can use Default "terminal". No additional s/w required.
+
+--> Permisisons Error / Permissions are too open : chmod 400 Keypair.pem
+
+ssh -i keypair.pem ec2-user@publicip
+_______________________________________________________________________________________
+
+Linux Instances : Default username : ec2-user  / redhat / ubuntu
+
+whoami		--> tels us as what user we are working.
+sudo su		--> Switch to root user
+exit		--> Exit from root user to ec2-user
+clear		--> Clears the screen
+
+ls		--> List the files/folders
+ls -a		--> List all including hidden files
+pwd		--> Print working directory
+mkdir		--> Create a Directory/Folder
+touch 		--> o bytes file/ plain file
+cd		--> Change directory
+
+copy and paste :  cp
+cut and paste  :  mv
+
+VIM Editor : 
+
+vim filename	--> Open this file in VIM editor
+
+Press I		--> INSERT Mode
+Press ESC	--> ReadOnly Mode
+:wq		--> Write and Quit (Write changes to file and quit the editor)
+:q!		--> Quit the Editor without writing the changes
+__
+
+Req: Make this linux Instance as Web Server (Apache).
+
+rpm : Redhat package manager
+yum : Yellowdog Update manager
+
+yum install httpd -y
+service httpd status			--> httpd webserver service status
+service httpd start/stop/restart
+chkconfig httpd on			--> Makes httpd as logon service.
+
+path : /var/www/html/
+
+cd /var/www/html/
+
+Tool to Move the files to amazon linux ec2 instance : WinSCP
+________________________________________________________________________________________
+
+
+Task 1 : Launch Amazon Linux 2 Instance, Connect to the instance. 
+Task 2 : Launch a linux ec2 instance and make it as webserver, deliver the custom webpage.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
