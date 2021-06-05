@@ -397,7 +397,47 @@ EIP : Elastic IP Address : (NO FREE TIER) : Dedicated IP address allocated to ou
 
 ENI : Elastic Network Interfaces : 
 
-__________________
+_________________________________________________________________________________________
+
+D: 05/06/2021
+
+--> Vertical Scaling : 
+--> Horizantal Scaling : 
+
+Userdata : Also called as Bootstrap script : It executes when instance launched for the firsttime.
+
+Linux: 
+
+#!/bin/bash
+yum update -y
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1> THis is my WebServer 8080 </h1>" >> /var/www/html/index.html
+
+Windows: <script> commands </script>   or  <powershell> commands </powershell>
+
+3 Types of ELBs: 
+--> Classic ELB : Previous Generation : http, https, tcp, udp, tls
+--> Application ELB / ALB : http & https
+--> Network ELB / NLB : tcp, tls, udp
+
+--> We won't get any IP address, We will get DNS Name.
+
+
+Free TIer : 750 Hrs/Month ELB
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
