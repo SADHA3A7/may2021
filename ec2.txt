@@ -413,7 +413,7 @@ yum update -y
 yum install httpd -y
 service httpd start
 chkconfig httpd on
-echo "<h1> THis is my WebServer 8080 </h1>" >> /var/www/html/index.html
+echo "<h1> THis is my WebServer 1 </h1>" >> /var/www/html/index.html
 
 Windows: <script> commands </script>   or  <powershell> commands </powershell>
 
@@ -424,17 +424,48 @@ Windows: <script> commands </script>   or  <powershell> commands </powershell>
 
 --> We won't get any IP address, We will get DNS Name.
 
-
 Free TIer : 750 Hrs/Month ELB
 
+--> We cannot choose required/EIP for APplication ELB.
+--> But FOr NEtwork ELB, We can allocate an EIP.
+
+Classic ELB : ROundRobin Algorithm
+Application LB / ALB : Nested ROundrobin algorithm and Least outstanding requests
 
 
+Logging on LB : Access Logs : 
+--> Store logs into s3 bucket.
+
+Sticky Sessions : Session sticks to the browser for defined duration.
+
+Instances : Instead of 0.0.0.0/0 --> 172.31.0.0/16
+--> Open WebServerSG port (80) to ELB SG instead of VPC CIDR/0.0.0.0/0..!!!!!
+
+_________________
+
+CloudWatch : Monitoring Service in AWS.
+--> We can monitor CPU, Network, Disk and Status checks.
+--> We cannot monitor "Memory/RAM Usage" with Default Cloudwatch metrics.
+
+--> FOr Instances we have 2 types of monitorings:
+	--> Basic Moniroting : 5 Min   : Free 
+	--> Detailed Monitoring : 1 Min : Cost us
+
+ec2 instance, Whenever CPU uti is >90 for 5 Min --> get Notifications --> Take an action (stop / reboot)
+
+CPU <= 10% from last 15 min... Stop instance, get notification.. 
+
+Cloudwatch Dashboard : monitor Multiple resources using for a project / Sprint..!! 
 
 
+--> CUstom CLoudwatch Metrics : We need to install "Cloudwatch agent" in our ec2 instance, using the agent we can monitor Memory usage, DIsk availability usage information, We can send our application logs to s3 bucket..!!
+
+__________
 
 
+Task : Whenever CPU utilisation is <= 10% for 15 Min of an ec2 instance, it should stop and you should get a notifications .
 
-
+Task : Configure Application LB with Multiple Target groups.
 
 
 
