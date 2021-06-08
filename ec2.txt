@@ -467,6 +467,39 @@ Task : Whenever CPU utilisation is <= 10% for 15 Min of an ec2 instance, it shou
 
 Task : Configure Application LB with Multiple Target groups.
 
+________________________________________________________________________________________
+
+D: 08/06/2021
+
+
+--> Create a GoldenAMI
+--> Create an ELB
+--> COnfigure ASG
+	--> Create a Launch COnfig (What settings you required for newly launching instances, SG, AMI, KP, Tags)  / Launch template
+	--> Create an ASG (Desired count, ScaleOut, ScaleIN)
+
+Target Tracking sclaing policy : Managed by aws, We need to choose the metric for our resources, Based on AVG usage AWS scales automatically. AWS suggested to use this.
+--> AvgCPUUtilization
+--> AvgNetworkIN
+--> AvgNetworkOut
+--> ALBRequestPerTarget
+
+Simple Scaling policy : We can create alarms based on required metrics, We can define when to scaledown , scaleup.. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
