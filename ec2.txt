@@ -486,7 +486,90 @@ Target Tracking sclaing policy : Managed by aws, We need to choose the metric fo
 
 Simple Scaling policy : We can create alarms based on required metrics, We can define when to scaledown , scaleup.. 
 
+________________________________________________________________________________________
 
+D: 09/06/2021
+
+Bees with Machine guns : Load test on ec2 instance..!!
+
+Userdata : http://169.254.169.254/latest/user-data/
+Linux : #!/bin/bash
+
+<script>
+tzutil /s "India Standard Time"
+</script>
+
+Metadata : Data about the data.. : 
+
+http://169.254.169.254/latest/meta-data/
+
+Linux : curl http://169.254.169.254/latest/meta-data/hostname
+
+ami-id
+ami-launch-index
+ami-manifest-path
+block-device-mapping/
+events/
+hibernation/
+hostname
+identity-credentials/
+instance-action
+instance-id
+instance-life-cycle
+instance-type
+local-hostname
+local-ipv4
+mac
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
+services/
+
+___________________
+
+
+Instance Store VOlumes : Ephemeral Storages (Temporary storage).. 
+--> We cannot stop / start the instances. 
+--> If something happens to underlying physical resources, we will loss all the data. 
+
+________
+
+Status Checks : 
+--> Instance Status Cheks : OS Level issues/ Instance health..  : Reboot
+--> System Status Checks : Underlying hardware health status/ Host status.. : Stop/Start
+
+________
+
+Tenancy : 
+Shared/Default tenancy : underlying hardware shares with multiple customers.
+Dedicated tenancy : Underlying h/w won't share with any other customer.
+	--> Dedicated Host : More visibility on backend infra.. If you want to apply any lixenses at hardware level (cpu, memory)
+	--> Dedicated Instance : Dedicated hardware, Less in size.. 
+
+https://stackoverflow.com/questions/64309679/aws-dedicated-host-vs-dedicated-instance-why-the-first-is-more-expensive-than
+
+https://aws.amazon.com/ec2/pricing/dedicated-instances/
+________
+
+Placement groups : How ec2 instance placed in Physical data center.. 
+--> Cluster PG : LOw latency and High network thorugput..  
+--> partition PG : Bigdata / datwarehousing/ HPC/ HDFS
+--> Spread PG : 
+
+________________________________
+
+
+EFS : Shared file systems for multiple ec2 instances.
+AWS CLI : 
+IAM Roles : 
+Systems Manager : 
+Elastic Beanstalk
 
 
 
