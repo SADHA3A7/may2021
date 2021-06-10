@@ -562,14 +562,74 @@ Placement groups : How ec2 instance placed in Physical data center..
 --> partition PG : Bigdata / datwarehousing/ HPC/ HDFS
 --> Spread PG : 
 
-________________________________
+________________________________________________________________________________________
+
+D: 10/06/2021
+
+EFS : Elastic FIle System   (Also called as "File Share").
+--> EFS works with NFS v4.1 (Network FIle System) Protocol
+--> All data stores in backend SSD.
+--> We an mount to 1000s of ec2 instances also.
+--> No PreProvisioning is required. We have unlimited data. pay-as-you-go.
+--> Supports only Linux OS.
+
+Regional : Stores data redundantly across multiple AZs 
+One Zone : Stores data redundantly within a single AZ
 
 
-EFS : Shared file systems for multiple ec2 instances.
-AWS CLI : 
-IAM Roles : 
-Systems Manager : 
-Elastic Beanstalk
+mkdir sharedvolume
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-b8d6eb69.efs.ap-south-1.amazonaws.com:/ sharedvolume
+
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-b8d6eb69.efs.ap-south-1.amazonaws.com:/ /var/www/html/
+
+--> Add entry to /etc/fstab file for the permanent mount.
+--> Get entry information from /etc/mtab file
+
+_________________________
+
+Windows: Shared storage for windows : FSx : NO FREE TIER 
+--> Works with SMB (Server Message Block) protocol. 
+
+https://www.youtube.com/watch?v=s15ljWSTWY4
+
+_________________________
+
+Elastic beanstalk : PaaS (Platform as a Service) : 
+
+php code : LAMP Linux Apache Mysql Php --> Deploy your code
+Java / Tomcat : ec2 , install, security --> code --> application
+
+Beanstalk --> Choose required platform --> Deploy your code --> Deliver
+
+
+--> Defaultly, we cannot connect to ec2 instance. 
+--> OS level modifications won't happen.
+--> Compared to ec2, cost is high.
+
+______________________________________
+
+Task : launch multiple ec2 instance, make them as webservers and deliver the web content from central EFS location. 
+
+_________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
