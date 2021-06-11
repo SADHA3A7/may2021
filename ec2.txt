@@ -612,7 +612,80 @@ ______________________________________
 
 Task : launch multiple ec2 instance, make them as webservers and deliver the web content from central EFS location. 
 
-_________
+________________________________________________________________________________________
+
+D: 11/06/2021
+
+IAM User : 
+	--> AWS Management COnsole Access : 
+	--> Programatic Access : AccessKeyID and SecretAccessKey : AWS CLI, CDK/SDK, 3rd Party applications
+
+AWS CLI : https://aws.amazon.com/cli
+
+
+aws --version
+
+aws configure
+AccesskeyID :
+SecretAccessKey :
+Default Region :
+Output format :
+____
+aws configure --profile nonprod
+aws configure --profile prod
+aws s3 ls --profile nonprod	--> List all the buckets from Nonprod
+aws s3 ls --profile prod	--> List all the buckets from prod
+____
+
+--region ap-south-1
+
+aws servicename command
+
+aws s3 ls
+aws iam list-users
+aws ec2 describe-instances --region eu-central-1
+
+aws s3 cp source destination
+aws s3 sync source dest
+
+--debug
+
+--> Presign URL : Generate S3 URL with Expiration durations.. : 
+aws s3 presign s3://bucketname/objectname --expire 60
+
+
+https://awsclibuilder.com/home
+https://docs.aws.amazon.com/cli/latest/index.html
+
+
+IAM ROles : Access services onbehalf of an iam user
+
+
+Task : Launch an ec2 instance using CLI 
+(run instance : ami-id, --subnet-id, --securitygroupid, keypair name)
+
+Task 2 : Create index.html and upload it to s3 bucket.. WHile launching ec2 instance use userdata to make your instance as webserver.. and get the index.html from s3 to instance web path.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
