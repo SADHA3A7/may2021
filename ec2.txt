@@ -666,6 +666,29 @@ Task : Launch an ec2 instance using CLI
 
 Task 2 : Create index.html and upload it to s3 bucket.. WHile launching ec2 instance use userdata to make your instance as webserver.. and get the index.html from s3 to instance web path.
 
+______________________________________________________________________________________
+
+D: 12/06/2021
+
+Systems Manager : 
+
+Windows Updates : Patch Tuesday (Every month 2nd tuesday).. 
+
+
+AWSSupport-RunEC2RescueForWindowsTool : Recover windows ec2 instance if you lost the keypair/ forgot the administrator password. 
+
+ResetAccess - Resets the local Administrator password and stores the new password in Parameter Store | 
+CollectLogs: Collects troubleshooting logs from the Operating System, and uploads them to an S3 bucket in your account | 
+FixAll: Attempts to fix an offline Windows root volume attached to the current instance
+
+
+
+
+
+
+
+
+
 
 
 

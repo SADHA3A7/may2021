@@ -1,0 +1,68 @@
+Route53 : AWS DNS Service : 
+
+DNS : Domain Name System :  
+DNS Port number : 53
+
+freenom.com	--> Free Domain Name
+
+Domain Registrers : They sell domain names to end customers. 
+GOdaddy, bigrock, web.com, freenom, route53
+
+ICANN : Maintains Domain uniqueness..
+IANA : root Zone Database :  
+
+google.com	--> TLD (Top Level Domain Name)
+google.co.in	--> SLD (Second Level Domain)
+
+______
+
+
+Step 1 : Purchase a Domain name.   (avinash.tk)
+
+Step 2 : If you purchase domain with 3rd party domiain register, We need to configure AWS Name Servers at Domain Registrer.. 
+
+NO FREE TIER ELIGIBLE : 0.50$ / per HostedZOne / Month
+
+Step 3 : IN AWS R53, Create a HostedZOne with the Purchased "Domain Name".
+
+NS : Name Server Record ***
+SOA : Start of Authority
+
+A Record : Address Record :  FQDN <--> IP address and vice versa
+Alias Record : We always use A + Alias to map domain name to aws resources. 
+
+CNAME : Cananical Name
+MX Record : mail Exchange
+TXT : Text Record
+PTR : pointer Record
+
+
+ROute53 Routing POlocies : 
+
+--> SImple RP
+--> Weighted RP
+--> Latency RP
+--> geolocation RP
+--> Failover RP
+--> MultiValue answer RP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
