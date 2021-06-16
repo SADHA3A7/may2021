@@ -1,3 +1,5 @@
+D: 15/06/2021
+
 VPC : Virtual Private Cloud : Networking
 
 App server, Web Server, Database Server.. 
@@ -71,6 +73,73 @@ TShirt Size : CIDR of Network.. Subnet.. How big is your network is..!!
 
 
 Visual Subnet Calc: https://www.davidc.net/sites/default/subnets/subnets.html
+
+________________________________________________________________________________________
+
+D: 16/06/2021
+
+How big VPC we required.?				Ans : /16 (65531 Usable IPs)
+How many subnets we required within the VPC..?		Ans : 2 (/18) 
+How many public SUbnets required within vpc..?		Ans : 1
+How many private SUbnets required within vpc.?		Ans : 1
+Are you going to create any subnets in future.?		Ans : Yes (Have some IPs for future use).
+
+Public SUbnet : Resources we launch here can access internt, and it can be accesable over internet.
+
+Private Subnet : Resources we launch here cannot access over the internet. If we need internet for Private subnet resources we need to configure NAT.
+
+Every region have a Default VPC. It uses Class B IP ranges (172.16.0.0 - 172.31.0.0)
+--> If we delete Default VPC, We can create again (Actions --> create defualt vpc). 
+
+Step 1 : Create a VPC.
+	VPC Name : CustomVPC		VPC CIDR : 192.168.0.0/16
+
+Step 2 : Create Subnets within CustomVPC. 
+
+Name : Public Subnet : ap-south-1a : 192.168.0.0/18
+Name : Private SUbnet : ap-south-1b : 192.168.64.0/18
+
+Step 3 : Create an Internet Gateway and associate with CustomVPC.
+--> One VPC can contains one IGW.
+
+Step 4 : Create RouteTables and Associate appropriate Subnets, add required routes.
+
+PublicRoute : We need to associate InternetGateway. 
+PrivateRoute without internet : Don't add IGW.
+PrivateRoute With Intenet : Create NAT Gateway and add NAT Gateway.
+
+--> PublicRoute : Go to SUbnet Association and choose "Public SUbnet". Navigate to Routes and add a route via IGW. 	 (0.0.0.0/0 --> IGW)
+
+--> PrivateRoute : Go to SUbnet Association and choose "Private SUbnet".
+
+Step 5 (Optional) : Navigate to Subnets, Choose "Public SUbnet", Actions, "Modify auto assign public ip settings", Enable.
+
+
+JUMP Server / Bastian Host : Is a Dedicated EC2 instance, Runs in CustomVPC PUblicSUbnet and can be used to connect to all the "Private Subnet" ec2 instances.
+
+
+
+Task : Create a VPC with 4 Subnets. (2 Public SUbnets and 2 Private Subnets)
+2 Public SUbnets (ap-south-1a, ap-south-1b)
+2 Private SUbnets (ap-south-1a, ap-south-1b)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
