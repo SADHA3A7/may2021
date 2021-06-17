@@ -105,7 +105,7 @@ Step 3 : Create an Internet Gateway and associate with CustomVPC.
 Step 4 : Create RouteTables and Associate appropriate Subnets, add required routes.
 
 PublicRoute : We need to associate InternetGateway. 
-PrivateRoute without internet : Don't add IGW.
+PrivateRoute without internet : Don't add IGW/NAT.
 PrivateRoute With Intenet : Create NAT Gateway and add NAT Gateway.
 
 --> PublicRoute : Go to SUbnet Association and choose "Public SUbnet". Navigate to Routes and add a route via IGW. 	 (0.0.0.0/0 --> IGW)
@@ -122,6 +122,51 @@ JUMP Server / Bastian Host : Is a Dedicated EC2 instance, Runs in CustomVPC PUbl
 Task : Create a VPC with 4 Subnets. (2 Public SUbnets and 2 Private Subnets)
 2 Public SUbnets (ap-south-1a, ap-south-1b)
 2 Private SUbnets (ap-south-1a, ap-south-1b)
+
+_______________________________________________________________________________________
+
+D: 17/06/2021
+
+NAT Gateway : Designed to provide internet to Private SUbnet resources. (NO FREE TIER ELIGIBILITY) (Elastic IP Address cost us)
+
+--> NAT gateway runs in CustomVPCs Public SUbnet. 
+--> We must edit the routetables with NAtGateway entry, then only private subnets will get the internet.
+
+--> DELETE the EIP after deleting the NAT Gateway Manually.
+
+_____
+
+Enable Logs on VPC : FLowLogs : Logging at VPC Level.
+	--> S3
+	--> CLoudwatch loggroup
+
+--> If required, we can enable logging at "Subnet Level", "Instance Level".
+
+____
+
+Deny the traffic coming to an entire subnet using NACLs.
+
+Network Access Control List / Network ACLs / NACL : 
+--> works at subnet level.
+--> We can allow the traffic and DENY the traffic also.
+--> Default NACL allows all the traffic. 
+
+--> CUstom NACL won't allow any traffic. 
+--> One SUbnet can be member of one NACL at a time.
+
+--> We need to open required ports in Inbound and Outbound rules also.
+--> Unlike Security groups, We need to take care about the OUTBound also.
+--> We need to open "Ephemeral ports" (1025-65535).
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
+
+--> Lowest Rule numbers will have highest priority always.
+
+____________
+
+
+
+
+
 
 
 
