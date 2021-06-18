@@ -161,7 +161,47 @@ https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
 
 --> Lowest Rule numbers will have highest priority always.
 
-____________
+_______________________________________________________________________________________
+
+D: 18/06/2021
+
+Launch a JUMP server in CUstomVPC public SUbnet. Linux 2 .. COpy the Keypair of your private subnet ec2 instances to JUMP server, THen only we can connect to private subnet instances.
+___
+
+VPC Peering : ENables the communication between multiple VPCs. (Same region, multiple Regions, Multiple aws accounts)
+--> Requester and accepter should not have same CIDR block. We cannot create peering if both vpcs have same cidr.
+
+
+		Requester			Accepter
+
+VPC ID		vpc-0cf7852c418f4adea		vpc-0d2b8d6f64ae19858
+VPC CIDR	192.168.0.0/16			172.31.0.0/16
+region		ap-south-1			us-east-1
+AWS Acc ID						
+
+We have to modify both the VPCs Route tables with cidr blocks via peering connection(pcx).
+--> VPC Peering is a non transitive peering.
+
+________________________________________________
+
+Endpoints / Private Links(pl) : It provides internal resource access to the private subnet ec2 instance without internet connection.
+
+Without having internet, We can access s3/dynamodb via private links. Secure way to enable transitions between s3 and private subnet ec2 instances.
+--> Gateway endpoint : s3 and Dynamodb. Free for the endpoint.
+
+______
+
+If we are using IPv6, To provide Internet to "private Subnet" resorces, We need to use "egress Only internet Gateway" not the NAT gateway.
+
+_______
+
+
+
+
+
+
+
+
 
 
 
