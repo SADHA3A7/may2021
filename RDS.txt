@@ -76,13 +76,21 @@ Automatic Backup : AWS creates backups automatically.
 
 Task : Launch an Mysql RDS db instance in CUstomVPCs Private SUbnet. Launch an ec2 instance in CUstomVPCs public SUbnet and connect to instance and install Mysql workbench.
 
+_________________________________________________________________________________________
+
+D: 21/06/2021
+
+Multi-AZ deployment : 
+Create a standby instance (recommended for production usage)
+Creates a standby in a different Availability Zone (AZ) to provide data redundancy, eliminate I/O freezes, and minimize latency spikes during system backups.
+
+--> We can reboot with failover.
+
+_____________________________
 
 
-
-
-
-
-
+Read Replica : 
+_____________________________________________________________________________________
 
 
 
