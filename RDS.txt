@@ -88,9 +88,79 @@ Creates a standby in a different Availability Zone (AZ) to provide data redundan
 
 _____________________________
 
+Read Replica : Read Only copy of primary database. SUpports read ony operations.
+--> We can promote the Read replica as individual database.
 
-Read Replica : 
 _____________________________________________________________________________________
+
+D: 22/06/2021
+
+SYstem Snapshot / Automated Snapshots : We cannot delete. Redise the backup retention period if required.
+--> Deletes along with DB / We can keep these copies for the retention period after db deletation also.
+
+Manaul Snapshot : We need to create these manually.
+--> We need to delete these copis manually.
+
+We can restore database from System / manual SS. 
+--> Not an Inplace restoration. 
+--> We can copy snapshot to another region. We can share with another AWS account.
+
+--> Point-in-time-recovery : AWS Creates the recovery points on databse. 
+
+Restore From s3 : We can take backup using 3rd party applicaitons (ex: percona Xtra backup), upload the backup copy to s3, then use the "restore from s3".
+
+____________
+
+Homogenious Migration : OnPrem MYSQL --> DMS Cluster --> AWS RDS MYSQL
+Heterogenious migration : OnPrem DB2 --> SCT --> DMS Cluster --> AWS RDS MYSQL
+
+DMS & Cloudendure
+
+
+Task 1 : Create mysql db instance (db) ----- Launch another mysql db instance.
+Using DMS, Migrate all the data from db1 to newly launched db2 instance.
+
+https://www.youtube.com/watch?v=iRhJDGp-ew8
+
+_____
+
+Task 2 : Cloudendure migration : 
+
+Launch an linux ec2 instance in Mumbai region (Make it as webserver) --> Migrate this instance to another region. 
+
+==> https://console.cloudendure.com/#/register/register 
+
+CLoudendure : https://www.youtube.com/watch?v=8xf1RpPdcHs
+
+Server Migration Service : https://www.youtube.com/watch?v=Vx9lRRY-shg
+
+__________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
