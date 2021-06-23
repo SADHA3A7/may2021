@@ -134,7 +134,74 @@ CLoudendure : https://www.youtube.com/watch?v=8xf1RpPdcHs
 
 Server Migration Service : https://www.youtube.com/watch?v=Vx9lRRY-shg
 
-__________________________________________________
+_______________________________________________________________________________________
+
+D: 23/06/2021
+Serverless : No underlying db instance required. We need to choose how many read & write capacity units.
+
+Serverless : You specify the minimum and maximum amount of resources needed, and Aurora scales the capacity based on database load. This is a good option for intermittent or unpredictable workloads.
+
+Aurora DB : NO FREE TIER ELIGIBILITY :  Amazon own db solutions : Supports 128 TB storage. Remainign RDS instance supports only 16 TB data.
+--> Mysql COmpatable
+--> postgreSQL Compatable
+
+DynamoDB : Single digit milli-second latency at any scale. it is a great fit for mobile, web, gaming, ad-tech, IoT, and many other applications.
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.html
+
+
+DAX : DynamoDB Accelerator : Amazon DynamoDB Accelerator (DAX) is a fully-managed, highly-available, in-memory caching service for DynamoDB.
+
+
+For RDS : In-Memory caching solution : Elasticache : Supports 2 open source caching engines.
+--> Memcached
+--> Redis
+
+_________
+
+
+Amazon Redshift : AWS Own Datawarehousing solution. : 
+
+_________
+
+Task :  https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TicTacToe.Phase1.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
