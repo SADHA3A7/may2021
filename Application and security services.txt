@@ -1,0 +1,73 @@
+D: 24/06/2021
+
+CloudTrail : Continuously log your AWS account activity. Enabled by defautly, Stores last 90 days logs. We can create a trail to s3 bucket and store for unlimited days.
+
+Management events : Capture management operations performed on your AWS resources. (FREE)
+Data Events : S3 / Lambda / dynamodb
+Insight Events : Identify unusual activity, errors, or user behavior in your account.
+
+_____________
+
+:: NO FREE TIER ELIGIBILITY ::
+Config : Record and evaluate configurations of your AWS resources.
+AWS Config provides a detailed view of the resources associated with your AWS account, including how they are configured, how they are related to one another, and how the configurations and their relationships have changed over time.
+
+_____________
+
+AWS Trusted Advisor : Based on Support plans we will get advises. 
+Cost Optimization
+Performance
+Security
+Fault Tolerance
+Service Limits
+_____________
+
+PHD : Operational issues from AWS, tells us any of our resources are effected.
+
+____________
+
+ACM : Amazon Certificate manager : 
+Secure over http : SSL / TLS : 
+SSL : Secure socket layer : 
+TLS : Transport layer secure : 
+
+
+https://raw.githubusercontent.com/avizway/redirection/master/httptohttps
+
+https://www.youtube.com/watch?v=93ekvcpzs1o
+
+Task : Create an ACM, Launch an ec2 instance and make it webserver.. Create an ELB, Open https and choose the ACM, Map your domain name in Route53.. 
+http://domain
+https://domain
+
+Task 2 : Configure http to https domain redirection.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
