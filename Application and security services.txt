@@ -42,6 +42,89 @@ https://domain
 
 Task 2 : Configure http to https domain redirection.
 
+_______________________________________________________________________________________
+
+D: 25/06/2021
+
+AWS Inspector : OS level issues.. (Network rechability, Security best practices, CIS Standards, Common Vulnerabilities and Exposures)
+--> An Inspector agent runs within our ec2 instance. 
+--> 14 Days.. 
+
+_______
+
+Cloudfront : PoP / Edge locations : CDN (Content Delivery network) : 
+--> S3 / ELB / Media services
+
+--> Data in s3 bucket --> DOn't make data Publicly accesable --> You want to share.
+--> ELB --> DDoS attacks (Cloudfront)  
+--> ASG + Cloudfront = DDoS 
+
+OAI : Origin Access Identiry : 
+
+_______________________________________________________________________________________
+
+D: 26/06/2021
+
+WAF : Web application firewall.. : Protect your web applications from common web exploits.
+==> CLoudfront , Application ELB, AWS Appsync, API gateway
+
+__
+
+AWS Shiled : ENabled in all aws accounts.. Designed to protect our resources from DDoS attack. 
+AWS Shield : Managed DDoS protection service.
+___________
+
+SQS : Simple Queue service : Messaging service : Poll/pull based msg service.. 
+
+1 million req under free tier
+
+Visibility timeout : 30 Sec
+Max msg size : 256 kb  (1 chunk = 64 kb)  
+If our msg contains 120 kb = 2 req
+
+Message retention period: default 4 days.. Max 14 Days.. 
+
+Dead-letter queue : Send undeliverable messages to a dead-letter queue. 
+
+__________
+
+SNS : Simple notification Service : 
+--> Create a topic, add subscribers to the topic and send msgs to subscribers.
+--> Push based msging service. 
+SNS also supports push notifications. Based on mobile OS we can send push notifications. 
+
+SES : We can send msgs onbehalf of a domain/email address.
+
+___
+
+Directory Service : 
+--> Directory services with in AWS envronment : AWS Managed Microsoft AD
+--> We can extend existing AD environment to AWS with "AD Connector".
+
+Directory Service : https://www.youtube.com/watch?v=RDlBoAHVmZs
+AD COnnector : https://www.youtube.com/watch?v=Ca259gg6SoM
+
+Join Linux Instance to domain : https://www.youtube.com/watch?v=LWi9-XL2vWQ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
