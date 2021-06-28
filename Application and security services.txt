@@ -106,6 +106,100 @@ AD COnnector : https://www.youtube.com/watch?v=Ca259gg6SoM
 
 Join Linux Instance to domain : https://www.youtube.com/watch?v=LWi9-XL2vWQ
 
+________________________________________________________________________________________
+
+D: 28/06/2021
+
+Lambda : Serverless architecture : Underlying infra managed by aws.
+--> Configuration (128 mb memory) 
+--> How many reqests
+--> Code run time (in Minutes)
+
+python
+go
+node.js
+.net core
+ruby
+java
+
+Canary function : 
+
+How to trigger lambda function periodically.? 
+Ans : Amazon EventBridge / CLoudwatch events (Previously).. rate format and cron format..
+
+Increase the lfunction configurtions.? 
+Memory --> 128 mB, 10 GB..
+
+Add additional permissions to the lambda function.
+Navigate the ROle associate to the lambda, add required permissions. 
+
+Where we get all the logs / previous executed results.
+CLoudwatch logs.. Loggroups.. 
+
+Can we run lambda with in VPC.? If yes, how..??
+Lambda's Role must have "AWSLambdaVPCAccessExecutionRole" permissions.
+
+
+Python : https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU
+
+AWS Python DOcumentation : https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html
+
+_______
+
+Task : Try the lambda functions i have shared.
+
+_____________________________________________________________________________
+
+Cloudformation : IaC (Infrastructure as Code) : 
+--> Free.. But for the resources it creates. 
+--> Supports JSON & YAML
+
+
+https://egghead.io/courses/learn-aws-lambda-from-scratch-d29d
+https://www.w3schools.com/js/js_json_intro.asp
+
+https://www.youtube.com/watch?v=yDp6pGwasMo&list=PLneBjIzDLECmpOYF5y51fOsBRqPkuX3NH
+
+_______________________________________________________________________________________
+
+CICD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
