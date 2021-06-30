@@ -162,7 +162,83 @@ https://www.youtube.com/watch?v=yDp6pGwasMo&list=PLneBjIzDLECmpOYF5y51fOsBRqPkuX
 
 _______________________________________________________________________________________
 
-CICD
+D: 29/06/2021
+
+cloud9 : IDE within AWS environment.
+
+AWS CDK : 
+node --version
+
+npm install -g aws-cdk
+
+cdk --version
+
+cdk init 		--> TO initialise a project in CDK
+cdk init sample-app --language typescript
+npm run watch
+cdk synth
+cdk bootstrap
+
+ * `npm run build`   compile typescript to js
+ * `npm run watch`   watch for changes and compile
+ * `npm run test`    perform the jest unit tests
+ * `cdk deploy`      deploy this stack to your default AWS account/region
+ * `cdk diff`        compare deployed stack with current state
+ * `cdk synth`       emits the synthesized CloudFormation template
+
+AWS Console recorder : Chrome extension
+
+cdkworkshop.com
+_______________________
+
+CICD : 
+
+aws codepipeline :   source code --> build --> deploy
+
+
+https://app.diagrams.net/
+
+______________________________________________________________________________________
+
+D: 30/06/2021
+
+ECS : Elastic Container Service : AWS Own service 
+ECR : Elastic container registery : repository to store images
+EKS : Elastic Kubernates Service : 
+
+
+ECS : 
+--> EC2 : We will get an ec2 instance, docker runs with in instance.. App perf/resource utilisation depends on ec2 configurtion.
+--> Fargate : ECS manages everything, Based on load it scales.
+
+Task Defination : Contqains information about what image, what configuration, network.. 
+
+Login
+docker build -t avinashnginx .
+docker tag avinashnginx:latest 
+docker push
+
+
+AWS Pricing Calculator: 
+
+https://calculator.s3.amazonaws.com/index.html
+https://calculator.aws/#/
+
+
+__________________________________________________________________
+
+AWS Organisations : Manage multiple AWS accounts.. 
+
+root / master --> Enable Org
+
+AWS SSO : Place to manage login (users/groups) to multiple Accounts added into AWS rganisation.
+
+
+
+
+
+
+
 
 
 
